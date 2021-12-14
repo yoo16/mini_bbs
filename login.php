@@ -43,6 +43,7 @@ if (!empty($_POST)) {
             <div class="form-floating mb-3">
                 <input class="form-control" type="email" name="email">
                 <label for="">メールアドレス</label>
+                <p class="text-danger"><?= @$errors['login'] ?></p>
             </div>
             <div class="form-floating mb-3">
                 <input class="form-control" type="password" name="password">
