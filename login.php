@@ -15,6 +15,14 @@ if (!empty($_POST)) {
         if ($member) {
             $_SESSION['id'] = $member['id'];
             $_SESSION['time'] = time();
+
+            //Cookieにデータ保存
+            if ($_POST['save'] == 'on') {
+                //Cookie の保存日数の数値
+                $time = time() + 60 * 60 * 24 * 14;
+                setcookie('email', $_POST['email'], $time);
+                setcookie('password', $_POST['password'], $time);
+            }
             header('Location: index.php');
             exit;
         } else {
@@ -24,6 +32,14 @@ if (!empty($_POST)) {
         $errors['login'] = 'メールアドレスとパスワードを入力してください。';
     }
 }
+
+//Cookie からデータ復元
+if (!empty($_COOKIE['email'])) {
+    $_POST['email'] = $_COOKIE['email'];
+    $_POST['password'] = $_COOKIE['password'];
+    $_POST['save'] = 'on';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +64,10 @@ if (!empty($_POST)) {
             <div class="form-floating mb-3">
                 <input class="form-control" type="password" name="password">
                 <label for="">パスワード</label>
+            </div>
+            <div>
+                <input type="checkbox" name="save" id="save" value="on">
+                <label for="save">次回からは自動的にログインする</label>
             </div>
             <div>
                 <button class="btn btn-primary">ログイン</button>
