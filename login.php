@@ -36,6 +36,7 @@ if (!empty($_POST)) {
 //Cookie からデータ復元
 if (!empty($_COOKIE['email']) && !empty($_COOKIE['password'])) {
     $_POST['email'] = $_COOKIE['email'];
+    //パスワードを Cookie に直接保存するのは危険な処理
     $_POST['password'] = $_COOKIE['password'];
     $_POST['save'] = 'on';
 }
