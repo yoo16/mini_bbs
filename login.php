@@ -57,12 +57,12 @@ if (!empty($_COOKIE['email'])) {
         <h2 class="h2">ログイン</h2>
         <form action="login.php" method="post">
             <div class="form-floating mb-3">
-                <input class="form-control" type="email" name="email">
+                <input class="form-control" type="email" name="email" value="<?= @$_POST['email'] ?>">
                 <label for="">メールアドレス</label>
                 <p class="text-danger"><?= @$errors['login'] ?></p>
             </div>
             <div class="form-floating mb-3">
-                <input class="form-control" type="password" name="password">
+                <input class="form-control" type="password" name="password" value="<?= @$_POST['password'] ?>">
                 <label for="">パスワード</label>
             </div>
             <div>
