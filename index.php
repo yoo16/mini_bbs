@@ -27,6 +27,12 @@ if (!empty($_POST) && $_POST['message'] != '') {
     header('Location: index.php');
     exit;
 }
+
+$sql = 'SELECT members.name, members.picture, posts.* 
+        FROM members, posts 
+        WHERE members.id = posts.member_id
+        ORDER BY posts.created DESC';
+$posts = $db->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +43,7 @@ if (!empty($_POST) && $_POST['message'] != '') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/default.css">
 </head>
 
 <body>
@@ -55,6 +62,20 @@ if (!empty($_POST) && $_POST['message'] != '') {
                 <button class="btn btn-primary">投稿</button>
             </div>
         </form>
+
+        <div>
+            <?php foreach($posts as $post): ?>
+            <article>
+                <div class="d-flex">
+                    <img src="images/me.png" class="profile">
+                    <div>
+                        <p><?= $post['message'] ?>（<?= $post['name'] ?>）</p>
+                        <p><?= $post['created'] ?></p>
+                    </div>
+                </div>
+            </article>
+            <?php endforeach ?>
+        </div>
     </div>
 </body>
 
