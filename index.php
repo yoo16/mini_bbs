@@ -1,3 +1,22 @@
+<?php
+session_start();
+require 'dbconnect.php';
+
+//メンバーのid があって、アクアセス時間が1時間以内だったらOK
+if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+    //アクセス時間を更新
+    $_SESSION['time'] = time();
+    // idからユーザ情報を取得
+    $sql = 'SELECT * FROM members WHERE id = ?';
+    $members = $db->prepare($sql);
+    $members->execute([$_SESSION['id']]);
+    $member = $members->fetch(PDO::FETCH_ASSOC);
+} else {
+    header('Location: login.php');    
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,6 +30,9 @@
 <body>
     <div class="container">
         <h1 class="h1">ひとこと掲示板</h1>
+        <div>
+            <p><?= $member['name'] ?></p>
+        </div>
         <form action="" method="post">
             <dl>
                 <dd>
