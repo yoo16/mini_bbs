@@ -12,7 +12,19 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     $members->execute([$_SESSION['id']]);
     $member = $members->fetch(PDO::FETCH_ASSOC);
 } else {
-    header('Location: login.php');    
+    header('Location: login.php');
+    exit;
+}
+//投稿
+if (!empty($_POST) && $_POST['message'] != '') {
+    $sql = 'INSERT INTO posts 
+            SET member_id = ?, message = ?, created = NOW();';
+    $message = $db->prepare($sql);
+    $message->execute([
+        $_SESSION['id'],
+        $_POST['message'],
+    ]);
+    header('Location: index.php');
     exit;
 }
 ?>
@@ -36,11 +48,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
         <form action="" method="post">
             <dl>
                 <dd>
-                    <textarea 
-                    name="message" 
-                    class="form-control" 
-                    placeholder="いまどうしてる？"
-                    ></textarea>
+                    <textarea name="message" class="form-control" placeholder="いまどうしてる？"></textarea>
                 </dd>
             </dl>
             <div>
