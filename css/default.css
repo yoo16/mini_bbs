@@ -1,7 +1,112 @@
-.profile {
+a {
+    text-decoration: none;
+}
+
+#side-menu a {
+    font-size: 16px;
+    color: black;
+}
+
+#side-menu {
+    float: left;
+    /* width: 80px; */
+    height: 100%;
+}
+
+.twitter__container a {
+    color: #58aeed;
+}
+
+.nav {
+    padding: 10px;
+    text-align: center;
+    font-size: 150%;
+    color: #ffffff;
+}
+
+.twitter-logo {
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: url(../svg/twitter-logo.svg) center no-repeat;
+}
+
+.tweet-img {
+    width: 60px;
+    padding: 0;
+    margin: 0 10px;
+    float: left;
+}
+
+.tweet-member {
+    padding: 1rem 1rem;
+}
+
+.tweet-post {
+    padding: 1rem 1rem;
+}
+
+.tweet-img img {
+    border-radius: 50%;
     width: 50px;
+    height: 50px;
+}
+
+.tweet-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
 }
 
 .tweet {
+    margin-left: 80px;
+}
+
+#side-menu svg {
+    height: 2rem;
+    margin: 10px;
+}
+
+.svg-tweet svg {
+    color: rgb(29, 155, 240);
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+    display: block;
+    padding-left: 20px;
+    width: 20%;
     float: left;
+    color: #8a9aa4;
+}
+
+.icon-bubble {
+    background: url("../svg/twitter-bubble.svg") left no-repeat;
+}
+
+.icon-heart {
+    background: url("../svg/twitter-heart.svg") left no-repeat;
+}
+
+.icon-loop {
+    background: url("../svg/twitter-loop.svg") left no-repeat;
+}
+
+.icon-trash {
+    background: url("../svg/trash.svg") left no-repeat;
+}
+
+.profile {
+    padding: 1rem;
+}
+
+.profile img {
+    border: 5px solid gray;
+    border-radius: 50%;
+    width: 100px;
+}
+
+.profile .member-name {
+    font-size: 30px;
 }
