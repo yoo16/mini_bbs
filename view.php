@@ -102,7 +102,7 @@ if (isset($_REQUEST['id'])) {
                                     <a href="view.php?id=<?= $response['id'] ?>" class="text-dark"><?= $response['message'] ?></a>
                                 </div>
                                 <div class="tweet-menu mb-3">
-                                    <a href="index.php?res_id=<?= $post['id'] ?>"><span class="icon icon-bubble"></span></a>
+                                    <a href="index.php?res_id=<?= $response['id'] ?>"><span class="icon icon-bubble"></span></a>
                                     <span class="icon icon-loop"></span>
                                     <span class="icon icon-heart"></span>
                                 </div>

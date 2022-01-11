@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     $sql = 'INSERT INTO members SET name = ?, email = ?, 
                         password = ?, picture = ?, created = NOW()';
     $stmt = $db->prepare($sql);
-    $stmt->execute(
+    $results = $stmt->execute(
         [
             $_SESSION['join']['name'],
             $_SESSION['join']['email'],
