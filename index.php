@@ -68,10 +68,11 @@ $posts = $db->query($sql);
 
         <div class="col-9">
             <h2 class="h2">最新ツイート</h2>
-            <form action="" method="post">
+            <form action="" method="post" onsubmit="validate(event)">
                 <div class="tweet-post">
                     <textarea name="message" class="form-control" placeholder="いまどうしてる？"><?= $message ?></textarea>
                     <input type="hidden" name="reply_post_id" value="<?= $res_id ?>">
+                    <p id="error-message" class="error-message"></p>
                 </div>
                 <div class="d-grid gap-2 col-3 mx-auto">
                     <button class="btn btn-primary btn-rounded" data-mdb-ripple-color="dark">投稿</button>

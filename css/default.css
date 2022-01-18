@@ -112,3 +112,12 @@ a {
 .profile .member-name {
     font-size: 30px;
 }
+
+
+.input-error {
+    border: 1px solid #ff0000;
+}
+
+.error-message {
+    color: #ff0000;
+}
