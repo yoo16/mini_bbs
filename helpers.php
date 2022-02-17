@@ -1,4 +1,7 @@
 <?php
+/**
+ * ヘルパーの関数
+ */
 function memberPicture($image_name)
 {
     $path = "member_picture/{$image_name}";
