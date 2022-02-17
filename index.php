@@ -1,4 +1,5 @@
 <?php
+//コメント追加
 session_start();
 require_once 'dbconnect.php';
 
