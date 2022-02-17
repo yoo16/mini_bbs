@@ -1,4 +1,8 @@
 <?php
+/**
+ * 削除処理
+ * 
+ */
 session_start();
 require_once 'dbconnect.php';
 
